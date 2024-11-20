@@ -1,3 +1,26 @@
 <p>
   pokemon-detail works!
 </p>
+
+<h1>{{ pokemonDetail.name }}</h1>
+<div>
+  <h2> Informaciones </h2>
+  height: {{ pokemonDetail.height }}
+  weight: {{ pokemonDetail.height }}
+  abilities:
+    <div *ngFor="let x of pokemonAbilities"> 
+      {{ x.ability.name }}, 
+    </div>
+  types: 
+  <div *ngFor="let x of pokemonTypes"> 
+    <div class="nada" (click)="onSelectedType(x)">
+    {{ x.type.name }}
+    </div> 
+  </div>
+
+  <div *ngIf="selectedBool">
+  <app-type-detail>
+    [pokemonTypes]="pokemonTypes"
+  </app-type-detail>
+  </div>
+</div>

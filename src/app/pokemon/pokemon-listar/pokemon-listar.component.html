@@ -1,16 +1,28 @@
-<h1>
-  Lista de pokemons
-</h1>
+<h1>Lista de pokemons</h1>
 
 <div *ngIf="selected">
-  <app-pokemon-detail></app-pokemon-detail>
+  <app-pokemon-detail>
+    [pokemonDetail]="pokemonSelected" [pokemonAbilities]="pokemonAbilities"
+    [pokemonTypes]="pokemonTypes"
+  </app-pokemon-detail>
 </div>
 
 <div *ngFor="let x of pokemonList">
-<div class="card" style="width: 18rem;" (click)="onSelected(x)">
-  <img class="card-img-top" src="{{ x.sprites.front_default }}" alt="foto del pokemon">
-  <div class="card-body">
-    <h5 class="card-title">{{x.name}}</h5>
+  <div class="card" style="width: 18rem" (click)="onSelected(x)">
+    <img
+      class="card-img-top"
+      src="{{ x.sprites.front_default }}"
+      alt="foto del pokemon"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ x.name }}</h5>
+    </div>
   </div>
-</div>
+
+  <div *ngFor="let x of listTypes">
+      <div class="card-body">
+        <h5 class="card-title">{{ x.type.name }}</h5>
+      </div>
+
+
 </div>
